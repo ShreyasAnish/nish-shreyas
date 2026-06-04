@@ -47,16 +47,74 @@
             <h2 class="article">Project Overview</h2>
             <p>
                 Welcome to my documentation hub! This site tracks my progress, experiments, 
-                and troubleshooting steps while programming the <strong>TI MSP430FR4133 LaunchPad</strong>. 
-                Featuring FRAM technology, ultra-low power modes, and a built-in liquid crystal display (LCD) controller.
+                and troubleshooting steps while programming the <strong>TI MSP430FR4133 LaunchPad</strong>.
             </p>
         </section>
 
         <hr>
 
         <section id="logs">
-            <h2>Engineering Logs & Troubleshooting</h2>
-            <p>A chronological record of progress made and obstacles overcome.</p>
+            <h2>Documentation</h2>
+            <p>A chronological record of progress made till now and obstacles overcome.</p>
+
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #3: Display String Output on the LCD Module.</h3>
+                        <span class="status-badge status-resolved">Resolved</span>
+                    </div>
+                    <small>📅 Date: June 3, 2026</small>
+                </header>
+                
+                <h5>Goal</h5>
+                <p>Display messages in the LCD module in <code>MSP430FR4133</code> and familiarise with the LCD module.</p>
+
+                <h5>Obstacle</h5>
+                <p>LCD modules were not working due to an error stating "undefined" tailing certain terms. Also, the format for displaying numbers was inconsistent.</p>
+
+                <h5>Resolution</h5>
+                <p>Included driver.h header file in the code, and issue was resolved. Also, referred to hal.c code in Out of Box Experience. Hence, got a clarity on how to represent characters and numbers, implementing displayMessage and scrollText functions.</p>
+            </article>
+            
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #2: Operation of Switch with LED</h3>
+                        <span class="status-badge status-resolved">Resolved</span>
+                    </div>
+                    <small>📅 Date: June 2, 2026</small>
+                </header>
+                
+                <h5>Goal</h5>
+                <p>Test the Switch and LED modules in <code>MSP430FR4133</code> to familiarise with the board.</p>
+
+                <h5>Obstacle</h5>
+                <p>N/A</p>
+
+                <h5>Resolution</h5>
+                <p>Successfully familiarised with <code>MSP430FR4133</code> and understand the terms and instructions used in the code.</p>
+            </article>
+            
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #1: Setting Up Code Composer Studio & Blinking LED</h3>
+                        <span class="status-badge status-resolved">Resolved</span>
+                    </div>
+                    <small>📅 Date: June 2, 2026</small>
+                </header>
+                
+                <h5>Goal</h5>
+                <p>Establish the development environment using TI Code Composer Studio (CCS) and blink the LED to verify the board functions.</p>
+
+                <h5>Obstacle</h5>
+                <p>N/A</p>
+
+                <h5>Resolution</h5>
+                <p>Successfully blinked the LED to verify proper functioning of <code>MSP430FR4133</code>.</p>
+            </article>
+
+            <!-- EXAMPLE
 
             <article class="log-card">
                 <header>
@@ -112,7 +170,8 @@ __enable_interrupt(); // Enable global interrupts</code></pre>
                 <h5>How I Resolved It</h5>
                 <p>Updated the TI emulators pack via the CCS App Center and switched to a high-quality USB data cable. Verified target configuration was strictly set to <code>MSP430FR4133</code>.</p>
             </article>
-
+            -->
+            
         </section>
     </main>
 
