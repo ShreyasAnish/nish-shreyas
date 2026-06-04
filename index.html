@@ -60,6 +60,82 @@
             <article class="log-card">
                 <header>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #7: Use an Ultrasonic Sensor to display distance from the object on the LCD Module.</h3>
+                        <span class="status-badge status-resolved">Resolved</span>
+                    </div>
+                    <small>📅 Date: June 4, 2026</small>
+                </header>
+                
+                <h5>Goal</h5>
+                <p>Display the distance of object from the Ultrasonic Sensor in the LCD module.</p>
+
+                <h5>Obstacle</h5>
+                <p>Errors recorded included: <code>#20: identifier "CM__BOTH" is undefined and CCIS__CCI1A is undefined</code> and <code>LCD_E_setVLCDVoltage</code> had Argument Mismatch.</p>
+
+                <h5>Resolution</h5>
+                <p>Corrected appropriate syntax and arguments for each identifier.</p>
+            </article>
+
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #6: Use an Ultrasonic Sensor to display distance from the object on the LCD Module.</h3>
+                        <span class="status-badge status-resolved">Resolved</span>
+                    </div>
+                    <small>📅 Date: June 4, 2026</small>
+                </header>
+                
+                <h5>Goal</h5>
+                <p>Display the distance of object from the Ultrasonic Sensor in the LCD module.</p>
+
+                <h5>Obstacle</h5>
+                <p>The display was stuck showing 0999. This was a software timeout indicating MSP430 triggered the sensor but never received the Echo pulse back.</p>
+
+                <h5>Resolution</h5>
+                <p>Instead of Timer Capture mode, used standard GPIO Port 1 Edge-Triggered Interrupts (PORT1_VECTOR).</p>
+            </article>
+
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #5: Display Potentiometer Reading on the LCD Module.</h3>
+                        <span class="status-badge status-resolved">Resolved</span>
+                    </div>
+                    <small>📅 Date: June 4, 2026</small>
+                </header>
+                
+                <h5>Goal</h5>
+                <p>Connect Potentiometer to <code>MSP430FR4133</code> and display the sensor readings on the LCD module.</p>
+
+                <h5>Obstacle</h5>
+                <p>5th and 6th positions on the LCD fluctuated wildly, while the 2nd and 3rd positions stayed permanently stuck displaying "10xx".</p>
+
+                <h5>Resolution</h5>
+                <p>potentiometer wire connected to P1.3, but setup in initADC() was configured P1.1 as the input. Enabled the analog function to select bits for P1.3 (P1SEL0 and P1SEL1). Routed the ADC internal multiplexer to Sample Channel A3 (ADCINCH_3).</p>
+            </article>
+            
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #4: Display Potentiometer Reading on the LCD Module.</h3>
+                        <span class="status-badge status-resolved">Resolved</span>
+                    </div>
+                    <small>📅 Date: June 4, 2026</small>
+                </header>
+                
+                <h5>Goal</h5>
+                <p>Connect Potentiometer to <code>MSP430FR4133</code> and display the sensor readings on the LCD module.</p>
+
+                <h5>Obstacle</h5>
+                <p>In the original showNumber function, raw arbitrary integers (2, 4, 6) were being passed directly into showChar().</p>
+
+                <h5>Resolution</h5>
+                <p>Rewrote digit extraction logic in showNumber to scale up to 4 digits, and explicitly linked them to pins using hardware positions lcdPositions[2] to lcdPositions[5].</p>
+            </article>
+            
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
                         <h3>Log #3: Display String Output on the LCD Module.</h3>
                         <span class="status-badge status-resolved">Resolved</span>
                     </div>
