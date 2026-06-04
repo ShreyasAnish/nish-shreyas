@@ -1,14 +1,125 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MSP430FR4133 Dev Log</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        :root {
+            --primary: #008080; /* Teal accent for an engineering vibe */
+        }
+        .log-card {
+            border-left: 4px solid var(--primary);
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .status-resolved { background-color: #d4edda; color: #155724; }
+        .status-pending { background-color: #fff3cd; color: #856404; }
+        pre { background-color: #1e1e1e; color: #d4d4d4; }
+    </style>
 </head>
 <body>
-    <h1>NISH Shreyas</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    
+
+    <header class="container">
+        <nav>
+            <ul>
+                <li><strong>🚀 MSP430FR4133 Exploration Log</strong></li>
+            </ul>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#logs">Dev Logs</a></li>
+                <li><a href="https://github.com/" target="_blank">GitHub Repo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <section id="about">
+            <h2 class="article">Project Overview</h2>
+            <p>
+                Welcome to my documentation hub! This site tracks my progress, experiments, 
+                and troubleshooting steps while programming the <strong>TI MSP430FR4133 LaunchPad</strong>. 
+                Featuring FRAM technology, ultra-low power modes, and a built-in liquid crystal display (LCD) controller.
+            </p>
+        </section>
+
+        <hr>
+
+        <section id="logs">
+            <h2>Engineering Logs & Troubleshooting</h2>
+            <p>A chronological record of progress made and obstacles overcome.</p>
+
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #2: Configuring GPIO & Interrupts</h3>
+                        <span class="status-badge status-resolved">Resolved</span>
+                    </div>
+                    <small>📅 Date: June 4, 2026</small>
+                </header>
+                
+                <h5>The Goal</h5>
+                <p>Configure an onboard switch (e.g., Switch S1 mapped to P1.2) to toggle an LED using interrupts rather than polling.</p>
+
+                <h5>The Obstacle / Bug</h5>
+                <p>The interrupt routine wasn't triggering when the button was pressed. The microcontroller either ignored the press entirely or entered an infinite loop state.</p>
+
+                <h5>How I Resolved It</h5>
+                <ul>
+                    <li><strong>Internal Pull-up:</strong> Realized the switch pin needed the internal pull-up resistor explicitly enabled because the hardware design defaults to active-low.</li>
+                    <li><strong>Unlock I/O:</strong> Remembered to disable the GPIO high-impedance mode by clearing the <code>LOCKLPM5</code> bit in the <code>PM5CTL0</code> register (crucial for MSP430 FRAM devices!).</li>
+                </ul>
+
+                <h5>Code Snippet</h5>
+                <pre><code>// Unlock GPIO high-impedance mode
+PM5CTL0 &= ~LOCKLPM5;
+
+// Configure P1.2 as input with pull-up resistor
+P1DIR &= ~BIT2; // Set P1.2 as input
+P1REN |= BIT2;  // Enable resistor
+P1OUT |= BIT2;  // Select pull-up
+
+// Configure Interrupt
+P1IES |= BIT2;  // High-to-low transition
+P1IE  |= BIT2;  // Enable P1.2 interrupt
+__enable_interrupt(); // Enable global interrupts</code></pre>
+            </article>
+
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #1: Setting Up Code Composer Studio & Blinking LED</h3>
+                        <span class="status-badge status-resolved">Resolved</span>
+                    </div>
+                    <small>📅 Date: June 1, 2026</small>
+                </header>
+                
+                <h5>The Goal</h5>
+                <p>Establish the development environment using TI Code Composer Studio (CCS) and flash a basic Blinky program to verify the board functions.</p>
+
+                <h5>The Obstacle</h5>
+                <p>CCS threw a driver communication error when attempting to flash the firmware, failing to recognize the MSP-FET onboard debugger.</p>
+
+                <h5>How I Resolved It</h5>
+                <p>Updated the TI emulators pack via the CCS App Center and switched to a high-quality USB data cable. Verified target configuration was strictly set to <code>MSP430FR4133</code>.</p>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="container">
+        <hr>
+        <small>Built with ❤️ using Pico.css | Hosted on GitHub Pages</small>
+    </footer>
+
 </body>
 </html>
