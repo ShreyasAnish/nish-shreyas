@@ -31,11 +31,11 @@
     <header class="container">
         <nav>
             <ul>
-                <li><strong>🚀 MSP430FR4133 Exploration Log</strong></li>
+                <li><strong>MSP430FR4133 Log</strong></li>
             </ul>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#logs">Dev Logs</a></li>
+                <li><a href="#logs">Logs</a></li>
                 <li><a href="https://github.com/" target="_blank">GitHub Repo</a></li>
             </ul>
         </nav>
@@ -60,8 +60,7 @@
             <article class="log-card">
                 <header>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3>Log #7: Use an Ultrasonic Sensor to display distance from the object on the LCD Module.</h3>
-                        <span class="status-badge status-resolved">Resolved</span>
+                        <h3>Log #5: Use an Ultrasonic Sensor to display distance from the object on the LCD Module.</h3>
                     </div>
                     <small>📅 Date: June 4, 2026</small>
                 </header>
@@ -70,112 +69,76 @@
                 <p>Display the distance of object from the Ultrasonic Sensor in the LCD module.</p>
 
                 <h5>Obstacle</h5>
-                <p>Errors recorded included: <code>#20: identifier "CM__BOTH" is undefined and CCIS__CCI1A is undefined</code> and <code>LCD_E_setVLCDVoltage</code> had Argument Mismatch.</p>
+                <p><strong>Display stuck at "0999": </strong>LCD showed 0999 instead of actual readings. Trigger connected to P1.4 and Echo connected to P1.5</p>
 
                 <h5>Resolution</h5>
-                <p>Corrected appropriate syntax and arguments for each identifier.</p>
+                <p>This was a software timeout indicating MSP430 triggered the sensor but never received the Echo pulse back. Instead of Timer Capture mode, used standard GPIO Port 1 Edge-Triggered Interrupts (PORT1_VECTOR).</p>
             </article>
 
-            <article class="log-card">
-                <header>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3>Log #6: Use an Ultrasonic Sensor to display distance from the object on the LCD Module.</h3>
-                        <span class="status-badge status-resolved">Resolved</span>
-                    </div>
-                    <small>📅 Date: June 4, 2026</small>
-                </header>
-                
-                <h5>Goal</h5>
-                <p>Display the distance of object from the Ultrasonic Sensor in the LCD module.</p>
-
-                <h5>Obstacle</h5>
-                <p>The display was stuck showing 0999. This was a software timeout indicating MSP430 triggered the sensor but never received the Echo pulse back.</p>
-
-                <h5>Resolution</h5>
-                <p>Instead of Timer Capture mode, used standard GPIO Port 1 Edge-Triggered Interrupts (PORT1_VECTOR).</p>
-            </article>
-
-            <article class="log-card">
-                <header>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3>Log #5: Display Potentiometer Reading on the LCD Module.</h3>
-                        <span class="status-badge status-resolved">Resolved</span>
-                    </div>
-                    <small>📅 Date: June 4, 2026</small>
-                </header>
-                
-                <h5>Goal</h5>
-                <p>Connect Potentiometer to <code>MSP430FR4133</code> and display the sensor readings on the LCD module.</p>
-
-                <h5>Obstacle</h5>
-                <p>5th and 6th positions on the LCD fluctuated wildly, while the 2nd and 3rd positions stayed permanently stuck displaying "10xx".</p>
-
-                <h5>Resolution</h5>
-                <p>potentiometer wire connected to P1.3, but setup in initADC() was configured P1.1 as the input. Enabled the analog function to select bits for P1.3 (P1SEL0 and P1SEL1). Routed the ADC internal multiplexer to Sample Channel A3 (ADCINCH_3).</p>
-            </article>
-            
             <article class="log-card">
                 <header>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <h3>Log #4: Display Potentiometer Reading on the LCD Module.</h3>
-                        <span class="status-badge status-resolved">Resolved</span>
                     </div>
                     <small>📅 Date: June 4, 2026</small>
                 </header>
                 
                 <h5>Goal</h5>
-                <p>Connect Potentiometer to <code>MSP430FR4133</code> and display the sensor readings on the LCD module.</p>
+                <p>Connect Potentiometer to MSP430FR4133 and display the sensor readings on the LCD module.</p>
 
                 <h5>Obstacle</h5>
-                <p>In the original showNumber function, raw arbitrary integers (2, 4, 6) were being passed directly into showChar().</p>
+                <p><strong>Display stuck at "10XX" instead of showing actual readings: </strong>5th and 6th position readings on the LCD fluctuated, while the 2nd and 3rd positions stayed permanently stuck at "10".</p>
 
                 <h5>Resolution</h5>
-                <p>Rewrote digit extraction logic in showNumber to scale up to 4 digits, and explicitly linked them to pins using hardware positions lcdPositions[2] to lcdPositions[5].</p>
+                <p>Potentiometer wire was connected to P1.3, but in initADC() it was configured to P1.1 as input. Hence, enabled the analog function to select bits on P1.3 (P1SEL0). Routed the ADC internal multiplexer to Sample Channel A3 (ADCINCH_3).</p>
             </article>
-            
+                      
             <article class="log-card">
                 <header>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <h3>Log #3: Display String Output on the LCD Module.</h3>
-                        <span class="status-badge status-resolved">Resolved</span>
                     </div>
                     <small>📅 Date: June 3, 2026</small>
                 </header>
                 
                 <h5>Goal</h5>
-                <p>Display messages in the LCD module in <code>MSP430FR4133</code> and familiarise with the LCD module.</p>
+                <p>Display messages in the LCD module in MSP430FR4133 and familiarise with its funtioning.</p>
 
                 <h5>Obstacle</h5>
-                <p>LCD modules were not working due to an error stating "undefined" tailing certain terms. Also, the format for displaying numbers was inconsistent.</p>
-
+                <ul>
+                    <li><strong>LCD Identifiers "undefined": </strong>Some LCD intendifiers showed "undefined" error in init_LCD().</li>
+                    <li><strong>Incorrect Number Display: </strong>Inconsistency recorded while displaying the numbers.</li>
+                </ul>
+                
                 <h5>Resolution</h5>
-                <p>Included driver.h header file in the code, and issue was resolved. Also, referred to hal.c code in Out of Box Experience. Hence, got a clarity on how to represent characters and numbers, implementing displayMessage and scrollText functions.</p>
+                <ul>
+                    <li><strong>LCD Identifiers "undefined": </strong>Included header file driver.h in main.c, and issue was resolved.</li>
+                    <li><strong>Incorrect Number Display: </strong>Referred to hal.c code in Out of Box Experience to implement proper format to display numbers.</li>
+                </ul>
             </article>
             
             <article class="log-card">
                 <header>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <h3>Log #2: Operation of Switch with LED</h3>
-                        <span class="status-badge status-resolved">Resolved</span>
                     </div>
                     <small>📅 Date: June 2, 2026</small>
                 </header>
                 
                 <h5>Goal</h5>
-                <p>Test the Switch and LED modules in <code>MSP430FR4133</code> to familiarise with the board.</p>
+                <p>Test the Switch and LED modules in MSP430FR4133 to familiarise with its functioning.</p>
 
                 <h5>Obstacle</h5>
                 <p>N/A</p>
 
                 <h5>Resolution</h5>
-                <p>Successfully familiarised with <code>MSP430FR4133</code> and understand the terms and instructions used in the code.</p>
+                <p>Successfully familiarised with MSP430FR4133 the terms and instructions used in the code.</p>
             </article>
             
             <article class="log-card">
                 <header>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3>Log #1: Setting Up Code Composer Studio & Blinking LED</h3>
-                        <span class="status-badge status-resolved">Resolved</span>
+                        <h3>Log #1: Setting Up Code Composer Studio & Blink an LED</h3>
                     </div>
                     <small>📅 Date: June 2, 2026</small>
                 </header>
@@ -187,7 +150,7 @@
                 <p>N/A</p>
 
                 <h5>Resolution</h5>
-                <p>Successfully blinked the LED to verify proper functioning of <code>MSP430FR4133</code>.</p>
+                <p>Successfully performed LED blink operation in MSP430FR4133.</p>
             </article>
 
             <!-- EXAMPLE
