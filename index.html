@@ -60,7 +60,31 @@
             <article class="log-card">
                 <header>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3>Log #6: Store the number of times Switch S1 is pressed to SD Card</h3>
+                        <h3>Log #7: Writing Data to SD Card</h3>
+                    </div>
+                    <small>Date: <em>June 8, 2026</em></small>
+                </header>
+                
+                <h5>Goal</h5>
+                <p>To find and display the number of times Switch S1 is pressed on LCD, and store the value in the SD Card.</p>
+
+                <h5>Obstacle</h5>
+                <ul>
+                    <li>Identifier uint16_t shown as "undefined" in <code>for(uint16_t i = 0; i < 512 * count; i++)</code>.</li>
+                    <li><code>#10234-D: unresolved symbols remain</code> specifically pointing to the symbol f_printf.</li>
+                </ul>
+                    
+                <h5>Resolution</h5>
+                <ul>
+                    <li>Initialised <code>uint16_t i;</code> separately at the beginning of the code, and defined loop as <code>for(i = 0; i < 512 * count; i++)</code>.</li>
+                    <li>In the header file ffconf.h, the macro FF_USE_STRFUNC was switched from 0 to 1.</li>
+                </ul>
+            </article>
+            
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #6: Store the Number of Times Switch S1 is pressed to SD Card</h3>
                     </div>
                     <small>Date: <em>June 5, 2026</em></small>
                 </header>
@@ -72,7 +96,7 @@
                 <p>The count successfully got displayed on the LCD, but was unable to be entered to the LOG.txt in the SD Card, which was blank after the operation.</p>
 
                 <h5>Resolution</h5>
-                <p>Imported FAtF and PFAtF file headers for the operation, however were unable to provide resolution.</p>
+                <p>Imported FAtF and PFAtF file headers for the operation, still not successful in writing data to SD Card.</p>
             </article>
             
             <article class="log-card">
