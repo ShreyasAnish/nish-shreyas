@@ -60,6 +60,91 @@
             <article class="log-card">
                 <header>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Log #9: UART Port not functioning for ESP32-S3 LCD 4.3</h3>
+                    </div>
+                    <small>Date: <em>June 16, 2026</em></small>
+                </header>
+                
+                <h5>Goal</h5>
+                <p>To verify if ESP32-S3 LCD is responding via USB port.</p>
+
+                <h5>Obstacle</h5>
+                <p>UART port connection shows "Windows:Device Not Recognised" error, so we need to verify if the board works.</p>
+                    
+                <h5>Resolution</h5>
+                <p>The below code was implemented to check its response on Arduino IDE Serial Monitor:</p>
+                <p><code> /* Waveshare ESP32-S3-LCD-4.3 Basic Functionality Test
+  Verifies: Code flashing, USB Serial communication, and CPU runtime.
+*/
+
+
+#define LED_BUILTIN 2 // Note: Some revisions may require the IO expander for LEDs,
+                      // but we focus on USB/Serial connectivity here.
+
+
+unsigned long previousMillis = 0;
+const long interval = 1000; // 1 second intervals
+int testCounter = 0;
+
+
+void setup() {
+  // Initialize Serial communication at 115200 baud
+  Serial.begin(115200);
+ 
+  // Delay to allow Serial Monitor to open and capture initial logs
+  delay(2000);
+
+
+  Serial.println("\n--- Waveshare ESP32-S3-LCD-4.3 Test Program ---");
+  Serial.print("Chip Revision: ");
+  Serial.println(ESP.getChipRevision());
+  Serial.print("Flash Size: ");
+  Serial.print(ESP.getFlashChipSize() / (1024 * 1024));
+  Serial.println(" MB");
+  Serial.print("PSRAM Size: ");
+  Serial.print(ESP.getPsramSize() / (1024 * 1024));
+  Serial.println(" MB");
+  Serial.println("------------------------------------------------");
+  Serial.println("Type anything into the input bar above to test Loopback!");
+}
+
+
+void loop() {
+  unsigned long currentMillis = millis();
+
+
+  // Print a heartbeat message every second to ensure the chip isn't crashing
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+    testCounter++;
+    Serial.print("[Heartbeat] Board is alive! Running seconds: ");
+    Serial.println(testCounter);
+  }
+
+
+  // Check if data is received via the USB/UART port and echo it back
+  if (Serial.available() > 0) {
+    String receivedData = Serial.readStringUntil('\n');
+    Serial.print("-> Echo From Board: ");
+    Serial.println(receivedData);
+  }
+}
+</code></p>
+            <p>The code was loaded successfully and the message sent was echoed back to the Serial Monitor:</p>
+            <p><code>
+                [Heartbeat] Board is alive! Running seconds:89
+                [Heartbeat] Board is alive! Running seconds:90
+                [Heartbeat] Board is alive! Running seconds:91
+                [Heartbeat] Board is alive! Running seconds:92
+                -> Echo From Board: NISH
+                [Heartbeat] Board is alive! Running seconds:93
+            </code></p>
+            
+            </article>
+            
+            <article class="log-card">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
                         <h3>Log #8: Connection of MSP420 to Serial Console on CCS</h3>
                     </div>
                     <small>Date: <em>June 10, 2026</em></small>
