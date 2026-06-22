@@ -206,23 +206,36 @@
         <div class="log-content">
             <div class="day-entry">
                 <div class="day-title">Day 1: MSP430 Peripheral Refining & Clock Stabilization</div>
-                <p class="day-desc">We leveraged logic analyzers to resolve serial timing failures and established stable communication channels via clock configuration updates.</p>
+                <p class="day-desc">A major focus of this week was successfully interfacing various peripherals with the MSP430 microcontroller and resolving the issues encountered during earlier attempts. We leveraged logic analyzers to resolve serial timing failures and established stable communication channels via clock configuration updates.</p>
+                <p class="day-desc">We first tried to display a simple message "Hello!" to the Serial Console on Code Composer Studio. The connection was established. However, instead of displaying the exact message, we could see that gibberish values were recorded on the console.</p>
+                
+                <div style="margin: 1.5rem 0; text-align: center;">
+                    <img src="image_62e569.png" alt="Logic Analyzer Waveform Analysis" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; font-style: italic;">Figure: Decoupling UART timing anomalies using the Saleae Logic Analyzer</div>
+                </div>
+
+                <p class="day-desc">We used Saleae Logic Analyser to decode the core issue. We could also match the baud rate and ensure proper communication channels and ports were set to display the message. Also, we noticed a slight mismatch in practical and ideal values in clock signals. Hence, we calibrated clock values to support proper communication.</p>
             </div>
+            
             <div class="day-entry">
                 <div class="day-title">Day 2: SD Card Formatting & Stepper Motor Interfacing</div>
-                <p class="day-desc">We successfully integrated precision stepper motor controls using physical button switches and built a Python script to convert logged binary files.</p>
+                <p class="day-desc">We successfully integrated precision stepper motor controls using physical button switches and built a Python script to convert logged binary files in the SD Card to readable file format.</p>
             </div>
+            
             <div class="day-entry">
                 <div class="day-title">Day 3: WaveShare ESP32-S3 Touch LCD Integration</div>
-                <p class="day-desc">We set up the WaveShare touch dashboard platform using the LVGL library to simulate system calibration and parameters.</p>
+                <p class="day-desc">We set up the WaveShare touch dashboard platform using the LVGL library to simulate system calibration and parameters. This was a simulated attempt to demonstrate how the display would actually show the EMG signals and carry out its visualisation.</p>
             </div>
+            
             <div class="day-entry">
                 <div class="day-title">Day 4: School Readiness Camp Preparation</div>
-                <p class="day-desc">We prepared tailored evaluation kits filled with articles like clay, stickers, flashcards, crayons and blocks to prepare for the school readiness assessment camp.</p>
+                <p class="day-desc">We prepared tailored evaluation kits filled with articles like pencils, clay, stickers, flashcards, crayons and building blocks to prepare for the school readiness assessment camp being held at NISH.</p>
             </div>
+            
             <div class="day-entry">
                 <div class="day-title">Day 5: School Readiness Camp Assistance</div>
-                <p class="day-desc">We supported the CATI department during the camp by observing behaviors and assisting parents evaluating developmental milestones for children with ASRD.</p>
+                <p class="day-desc">We supported the CATI department during the camp by observing behaviors of participants, helping with the transportation of materials and registration of the participants, and assisting parents evaluating developmental milestones for children with ASRD as a part of the camp.</p>
+                <p class="day-desc">The camp provided valuable exposure to the practical aspects of working with children with developmental differences and supporting their families. It helped us develop a better understanding of the diverse needs, behaviours, and learning styles of children with ASRD, while also fostering empathy and patience.</p>
             </div>
         </div>
     </details>
