@@ -154,29 +154,48 @@
         </div>
     </details>
 
-    <!-- WEEK 2 -->
-    <details>
+<details>
         <summary>Week 2: Microcontroller & Sensor Familiarization</summary>
         <div class="log-content">
             <div class="day-entry">
                 <div class="day-title">Day 1: MSP-EXP430FR4133 Architecture Review</div>
                 <p class="day-desc">We studied the user guides and hardware layouts to get familiarised with the underlying architecture of TI MSP430-EXPFR4133 microcontroller.</p>
+                <p class="day-desc">We examined the pin layout of the board to understand how different pins are assigned for digital input/output operations and peripheral interfacing. The microcontroller uses a port-based arrangement for organizing pins, making it easier to configure and manage multiple devices.</p>
+                <p class="day-desc">We also explored the communication protocols supported by the board, including UART, I2C, and SPI, which are widely used for communication with sensors and external modules.</p>
             </div>
+            
             <div class="day-entry">
                 <div class="day-title">Day 2: Code Composer Studio (CCS) Onboarding</div>
                 <p class="day-desc">We dedicated time to configuring Texas Instruments' Code Composer Studio IDE, familiarising with project setups and compilation workflows.</p>
+                <p class="day-desc">To gain practical exposure, we explored the out-of-box demonstration software provided with the development board. We tested demonstration applications such as stopwatch and timer programs, where user inputs were provided through the onboard buttons and outputs were displayed on the LCD screen. We also tested a temperature module to display the room temperature in both degree celsius and fahrenheit.</p>
+                <p class="day-desc">We also demonstrated simple experiments with the board such as blinking the LEDs on the board, and controlling operation with the switches provided.</p>
             </div>
+            
             <div class="day-entry">
                 <div class="day-title">Day 3: Basic Hardware Interfacing & ADC</div>
-                <p class="day-desc">We configured GPIO registers and practiced reading basic analog inputs by converting data values from a potentiometer onto the in-built LCD module.</p>
+                <p class="day-desc">We began with simple exercises involving the onboard push buttons, where programs were written to detect button presses and display corresponding counts on the segmented LCD. These introductory activities helped us understand GPIO configuration, input handling, and display control.<br>
+                <strong style="color: #ef4444;">Error:</strong> LCD Identifiers "undefined": Some LCD identifiers showed "undefined" error in init_LCD().<br>
+                <strong style="color: #10b981;">Resolution:</strong> Included header file driver.h in main.c.<br>
+                <strong style="color: #ef4444;">Error:</strong> Incorrect Number Display: Inconsistent display was recorded on the LCD module instead of receiving a proper format for digits.<br>
+                <strong style="color: #10b981;">Resolution:</strong> Referred to hal.c code in Out of Box Experience to learn and implement a proper format to display digits on the LCD module.</p>
+                
+                <p class="day-desc">We configured GPIO registers and practiced reading basic analog inputs by converting data values from a potentiometer onto the in-built LCD module.<br>
+                <strong style="color: #ef4444;">Error:</strong> Display stuck at "10XX" instead of showing actual readings: 5th and 6th position readings on the LCD fluctuated, while the 2nd and 3rd position readings stood permanently stuck at "10".<br>
+                <strong style="color: #10b981;">Resolution:</strong> Potentiometer wire was connected to the pin P1.3, but in initADC() it was configured to P1.1 as input, which caused the error. Hence, enabled the analog function to select bits on P1.3 (P1SEL0) and routed the ADC internal multiplexer to Sample Channel A3 (ADCINCH_3).</p>
             </div>
+            
             <div class="day-entry">
                 <div class="day-title">Day 4: Multi-Sensor Data Logging Experiments</div>
-                <p class="day-desc">We connected external accelerometers and ultrasonic sensors to process real-time environmental data inputs and attempted SD card storage routines.</p>
+                <p class="day-desc">We connected ultrasonic sensors to process real-time environmental data input and attempted SD card storage routines.<br>
+                <strong style="color: #ef4444;">Error:</strong> Display stuck at "0999": LCD showed 0999 instead of actual readings. Trigger connected to P1.4 and Echo connected to P1.5.<br>
+                <strong style="color: #10b981;">Resolution:</strong> This was a software timeout indicating MSP430 triggered the sensor but never received the Echo pulse back. Instead of Timer Capture mode, used standard GPIO Port 1 Edge-Triggered Interrupts (PORT1_VECTOR).</p>
+                
+                <p class="day-desc">We tried to display the number of times Switch S1 is pressed on LCD, and store the value in the SD Card. It was noted that the count was successfully displayed on the LCD, but we were unable to enter that data to a LOG.txt file in the SD Card, which was blank after the operation. We imported FatFs and Petit FatFs file headers to perform the operation, but that did not resolve the issue. Later on, we found out that data was stored on raw sectors in the SD Card, which could be viewed with a Hex Editor.</p>
             </div>
+            
             <div class="day-entry">
                 <div class="day-title">Day 5: Myoware 2.0 Muscle Sensor Testing</div>
-                <p class="day-desc">We mapped out optimal forearm sensor placement configurations utilizing the Myoware 2.0 LED shield to evaluate surface electromyography muscle signals.</p>
+                <p class="day-desc">We mapped out optimal forearm sensor placement configurations utilizing the Myoware 2.0 LED shield to evaluate surface electromyography muscle signals. We initially faced difficulty in locating optimal points to record required output, but later on were able to find apt locations to place the electrodes on the skin.</p>
             </div>
         </div>
     </details>
