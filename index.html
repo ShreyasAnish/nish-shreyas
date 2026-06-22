@@ -241,15 +241,14 @@
     </details>
 
     <!-- WEEK 4 -->
-    <!-- WEEK 4 -->
     <details>
         <summary>Week 4: Inter-Board Interfacing & Software Development</summary>
         <div class="log-content">
             <div class="day-entry">
                 <div class="day-title">Day 1: Board Troubleshooting & USB/OTG Fallback</div>
-                <p class="day-desc">We faced a hardware UART port failure on the WaveShare display module[cite: 1]. We had to ensure that it works on the USB port, and hence we switched to methods adapting workflows to run through alternative USB protocols[cite: 1].<br>
+                <p class="day-desc">We faced a hardware UART port failure on the WaveShare display module. We had to ensure that it works on the USB port, and hence we switched to methods adapting workflows to run through alternative USB protocols.<br>
                 <strong style="color: #ef4444;">Error:</strong> UART port connection shows "Windows:Device Not Recognised" error. We need to verify if the board works on the USB port.<br>
-                <strong style="color: #10b981;">Resolution:</strong> The below code was implemented to check its response on Arduino IDE Serial Monitor[cite: 1]:</p>
+                <strong style="color: #10b981;">Resolution:</strong> The below code was implemented to check the response on Arduino IDE Serial Monitor:</p>
                 
                 <!-- Code Section -->
                 <pre style="background-color: #0f172a; padding: 15px; border-radius: 6px; border: 1px solid var(--border); overflow-x: auto; font-family: monospace; font-size: 0.9rem; color: #a7f3d0; margin-bottom: 1.5rem;">
@@ -301,7 +300,7 @@ void loop() {
   }
 }</pre>
 
-                <p class="day-desc">The code was loaded successfully and the message sent by user echoes back to the Serial Monitor[cite: 1]:</p>
+                <p class="day-desc">The code was loaded successfully and the message sent by user echoes back to the Serial Monitor:</p>
                 <pre style="background-color: #0f172a; padding: 15px; border-radius: 6px; border: 1px solid var(--border); font-family: monospace; font-size: 0.9rem; color: #94a3b8; margin-bottom: 0;">
 [Heartbeat] Board is alive! Running seconds:89
 [Heartbeat] Board is alive! Running seconds:90
@@ -313,25 +312,25 @@ void loop() {
             
             <div class="day-entry">
                 <div class="day-title">Day 2: Master-Slave I2C Inter-Board Integration</div>
-                <p class="day-desc">We successfully configured a stable master-slave data transfer between the ESP32 and MSP430 platforms utilizing direct I2C bus arrangements[cite: 1].</p>
+                <p class="day-desc">We successfully configured a stable master-slave data transfer between the ESP32 and MSP430 platforms utilizing direct I2C bus arrangements.</p>
             </div>
             
             <div class="day-entry">
                 <div class="day-title">Day 3: Port Registers Optimization &amp; Signal Math Review</div>
-                <p class="day-desc">We audited our micro-controller register configuration and evaluated sEMG signal conversion pipelines to optimize analog reading consistency[cite: 1]. Readings received from the Myoware sensor ranged from 0mV to 7.45mV.</p>
-                <p class="day-desc">We reviewed MSP430 port selection registers to understand why certain online examples using both PxSEL0 and PxSEL1 were incompatible with our microcontroller[cite: 1]. This was because MSP430FR4133 only provides PxSEL0, allowing two selectable functions per pin, whereas other MSP430 variants use both registers to support additional peripheral functions[cite: 1].</p>
+                <p class="day-desc">We audited our micro-controller register configuration and evaluated sEMG signal conversion pipelines to optimize analog reading consistency. Readings received from the Myoware sensor ranged from 0mV to 7.45mV.</p>
+                <p class="day-desc">We reviewed MSP430 port selection registers to understand why certain online examples using both PxSEL0 and PxSEL1 were incompatible with our microcontroller. This was because MSP430FR4133 only provides PxSEL0, allowing two selectable functions per pin, whereas other MSP430 variants use both registers to support additional peripheral functions.</p>
             </div>
             
             <div class="day-entry">
                 <div class="day-title">Day 4: SD Card Data Logging Improvements</div>
-                <p class="day-desc">We upgraded our storage script to allow continuous multi-sector data streaming, securing capacity for up to 400,000 continuous readings without memory losses[cite: 1]. Testing was carried out using a 10 MB text file, and the system was configured to align logged data correctly within the storage space[cite: 1].</p>
+                <p class="day-desc">We upgraded our storage script to allow continuous multi-sector data streaming, securing capacity for up to 400,000 continuous readings without memory losses. Testing was carried out using a 10 MB text file, and the system was configured to align logged data correctly within the storage space.</p>
             </div>
             
             <div class="day-entry">
                 <div class="day-title">Day 5: sEMG Exercise Game Logic and Pygame Prototyping</div>
-                <p class="day-desc">We conceptualized assistive simulation parameters and developed an engaging 2D interactive Pygame prototype designed around muscle contraction tracking thresholds[cite: 1].</p>
-                <p class="day-desc">For the initial phase, we developed a game prototype with keyboard input[cite: 1]. The game synopsis is to collect 10 mangoes from an orchard, where the player will perform a jump whenever "up arrow" is pressed, and on completion it will display a victory message[cite: 1].</p>
-                <p class="day-desc">Later on, the "W" key was added to perform a low jump, and the "up arrow" remained to perform a high jump considering the varying levels of flex in muscles[cite: 1]. The keyboard input will be later replaced by EMG signal values to perform the player jump action[cite: 1].</p>
+                <p class="day-desc">We conceptualized assistive simulation parameters and developed an engaging 2D interactive Pygame prototype designed around muscle contraction tracking thresholds.</p>
+                <p class="day-desc">For the initial phase, we developed a game prototype with keyboard input. The game synopsis is to collect 10 mangoes from an orchard, where the player will perform a jump whenever "up arrow" is pressed, and on completion it will display a victory message.</p>
+                <p class="day-desc">Later on, the "W" key was added to perform a low jump, and the "up arrow" remained to perform a high jump considering the varying levels of flex in muscles. The keyboard input will be later replaced by EMG signal values to perform the player jump action.</p>
             </div>
         </div>
     </details>
