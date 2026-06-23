@@ -248,9 +248,9 @@
                 <div class="day-title">Day 1: Board Troubleshooting & UART Port</div>
                 <p class="day-desc">We faced a hardware UART port failure on the WaveShare display module. We had to ensure that it works on the USB port, and hence we switched to methods adapting workflows to run through alternative USB protocols.<br>
                 <strong style="color: #ef4444;">Error:</strong> UART port connection shows "Windows:Device Not Recognised" error. We need to verify if the board works on the USB port.<br>
-                <strong style="color: #10b981;">Resolution:</strong> The below code was implemented to check the response on Arduino IDE Serial Monitor:</p>
+                <strong style="color: #10b981;">Resolution:</strong> A test code was implemented to check the response on Arduino IDE Serial Monitor. The code was loaded successfully and the message sent by user echoes back to the Serial Monitor:</p>
                 
-                <!-- Code Section -->
+                <!-- Code Section
                 <pre style="background-color: #0f172a; padding: 15px; border-radius: 6px; border: 1px solid var(--border); overflow-x: auto; font-family: monospace; font-size: 0.9rem; color: #a7f3d0; margin-bottom: 1.5rem;">
 /* Waveshare ESP32-S3-LCD-4.3 Basic Functionality Test
 Verifies: Code flashing, USB Serial communication, and CPU runtime. */
@@ -298,9 +298,8 @@ void loop() {
     Serial.print("-&gt; Echo From Board: ");
     Serial.println(receivedData);
   }
-}</pre>
+}</pre> -->
 
-                <p class="day-desc">The code was loaded successfully and the message sent by user echoes back to the Serial Monitor:</p>
                 <pre style="background-color: #0f172a; padding: 15px; border-radius: 6px; border: 1px solid var(--border); font-family: monospace; font-size: 0.9rem; color: #94a3b8; margin-bottom: 0;">
 [Heartbeat] Board is alive! Running seconds:89
 [Heartbeat] Board is alive! Running seconds:90
