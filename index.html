@@ -245,7 +245,7 @@
         <summary>Week 4: Inter-Board Interfacing & Software Development</summary>
         <div class="log-content">
             <div class="day-entry">
-                <div class="day-title">Day 1: Board Troubleshooting & USB/OTG Fallback</div>
+                <div class="day-title">Day 1: Board Troubleshooting & UART Port</div>
                 <p class="day-desc">We faced a hardware UART port failure on the WaveShare display module. We had to ensure that it works on the USB port, and hence we switched to methods adapting workflows to run through alternative USB protocols.<br>
                 <strong style="color: #ef4444;">Error:</strong> UART port connection shows "Windows:Device Not Recognised" error. We need to verify if the board works on the USB port.<br>
                 <strong style="color: #10b981;">Resolution:</strong> The below code was implemented to check the response on Arduino IDE Serial Monitor:</p>
@@ -311,8 +311,8 @@ void loop() {
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 2: Master-Slave I2C Inter-Board Integration</div>
-                <p class="day-desc">We successfully configured a stable master-slave data transfer between the ESP32 and MSP430 platforms utilizing direct I2C bus arrangements.</p>
+                <div class="day-title">Day 2: Troubleshooting the WaveShare</div>
+                <p class="day-desc">We uploaded one of the official WaveShare example programs. The LCD responded as expected, confirming that the main processor and display hardware were operational. Hence development could continue despite an issue with the UART port.</p>
             </div>
             
             <div class="day-entry">
@@ -341,7 +341,7 @@ void loop() {
                     Figures: Interactive 2D Pygame "Flex A Pie"
                 </div>                
                 <p class="day-desc">For the initial phase, we developed a game prototype with keyboard input. The game synopsis is to collect 10 mangoes from an orchard, where the player will perform a jump whenever "up arrow" is pressed, and on completion it will display a victory message.</p>
-                <p class="day-desc">Later on, the "W" key was added to perform a low jump, and the "up arrow" remained to perform a high jump considering the varying levels of flex in muscles. The keyboard input will be later replaced by EMG signal values to perform the player jump action.</p>
+                <p class="day-desc">Later on, the "W" key was added to perform a low jump, and the "up arrow" remained to perform a high jump considering the varying levels of flex in muscles. The keyboard input will be later replaced by EMG signal values to perform the player jump action. The character visual art and game assests were created by Merin.</p>
             </div>
         </div>
     </details>
