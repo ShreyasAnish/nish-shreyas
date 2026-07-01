@@ -158,21 +158,21 @@
         <summary>Week 2: Microcontroller & Sensor Familiarization</summary>
         <div class="log-content">
             <div class="day-entry">
-                <div class="day-title">Day 1: MSP-EXP430FR4133 Architecture Review</div>
+                <div class="day-title">Day 4: MSP-EXP430FR4133 Architecture Review</div>
                 <p class="day-desc">We studied the user guides and hardware layouts to get familiarised with the underlying architecture of TI MSP430-EXPFR4133 microcontroller.</p>
                 <p class="day-desc">We examined the pin layout of the board to understand how different pins are assigned for digital input/output operations and peripheral interfacing. The microcontroller uses a port-based arrangement for organizing pins, making it easier to configure and manage multiple devices.</p>
                 <p class="day-desc">We also explored the communication protocols supported by the board, including UART, I2C, and SPI, which are widely used for communication with sensors and external modules.</p>
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 2: Code Composer Studio (CCS) Onboarding</div>
+                <div class="day-title">Day 5: Code Composer Studio (CCS) Onboarding</div>
                 <p class="day-desc">We dedicated time to configuring Texas Instruments' Code Composer Studio IDE, familiarising with project setups and compilation workflows.</p>
                 <p class="day-desc">To gain practical exposure, we explored the out-of-box demonstration software provided with the development board. We tested demonstration applications such as stopwatch and timer programs, where user inputs were provided through the onboard buttons and outputs were displayed on the LCD screen. We also tested a temperature module to display the room temperature in both degree celsius and fahrenheit.</p>
                 <p class="day-desc">We also demonstrated simple experiments with the board such as blinking the LEDs on the board, and controlling operation with the switches provided.</p>
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 3: Basic Hardware Interfacing & ADC</div>
+                <div class="day-title">Day 6: Basic Hardware Interfacing & ADC</div>
                 <p class="day-desc">We began with simple exercises involving the onboard push buttons, where programs were written to detect button presses and display corresponding counts on the segmented LCD. These introductory activities helped us understand GPIO configuration, input handling, and display control.<br>
                 <strong style="color: #ef4444;">Error:</strong> LCD Identifiers "undefined": Some LCD identifiers showed "undefined" error in init_LCD().<br>
                 <strong style="color: #10b981;">Resolution:</strong> Included header file driver.h in main.c.<br>
@@ -185,7 +185,7 @@
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 4: Multi-Sensor Data Logging Experiments</div>
+                <div class="day-title">Day 7: Multi-Sensor Data Logging Experiments</div>
                 <p class="day-desc">We connected ultrasonic sensors to process real-time environmental data input and attempted SD card storage routines.<br>
                 <strong style="color: #ef4444;">Error:</strong> Display stuck at "0999": LCD showed 0999 instead of actual readings. Trigger connected to P1.4 and Echo connected to P1.5.<br>
                 <strong style="color: #10b981;">Resolution:</strong> This was a software timeout indicating MSP430 triggered the sensor but never received the Echo pulse back. Instead of Timer Capture mode, used standard GPIO Port 1 Edge-Triggered Interrupts (PORT1_VECTOR).</p>
@@ -194,7 +194,7 @@
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 5: Myoware 2.0 Muscle Sensor Testing</div>
+                <div class="day-title">Day 8: Myoware 2.0 Muscle Sensor Testing</div>
                 <p class="day-desc">We mapped out optimal forearm sensor placement configurations utilizing the Myoware 2.0 LED shield to evaluate surface electromyography muscle signals. We initially faced difficulty in locating optimal points to record required output, but later on were able to find apt locations to place the electrodes on the skin.</p>
             </div>
         </div>
@@ -205,7 +205,7 @@
         <summary>Week 3: Debugging Peripherals & School Readiness Camp</summary>
         <div class="log-content">
             <div class="day-entry">
-                <div class="day-title">Day 1: MSP430 Peripheral Refining & Clock Stabilization</div>
+                <div class="day-title">Day 9: MSP430 Peripheral Refining & Clock Stabilization</div>
                 <p class="day-desc">A major focus of this week was successfully interfacing various peripherals with the MSP430 microcontroller and resolving the issues encountered during earlier attempts. We leveraged logic analyzers to resolve serial timing failures and established stable communication channels via clock configuration updates.</p>
                 <p class="day-desc">We first tried to display a simple message "Hello!" to the Serial Console on Code Composer Studio. The connection was established. However, instead of displaying the exact message, we could see that gibberish values were recorded on the console.</p>
                 
@@ -218,22 +218,22 @@
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 2: SD Card Formatting & Stepper Motor Interfacing</div>
+                <div class="day-title">Day 10: SD Card Formatting & Stepper Motor Interfacing</div>
                 <p class="day-desc">We successfully integrated precision stepper motor controls using physical button switches and built a Python script to convert logged binary files in the SD Card to readable file format.</p>
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 3: WaveShare ESP32-S3 Touch LCD Integration</div>
+                <div class="day-title">Day 11: WaveShare ESP32-S3 Touch LCD Integration</div>
                 <p class="day-desc">We set up the WaveShare touch dashboard platform using the LVGL library to simulate system calibration and parameters. This was a simulated attempt to demonstrate how the display would actually show the EMG signals and carry out its visualisation.</p>
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 4: School Readiness Camp Preparation</div>
+                <div class="day-title">Day 12: School Readiness Camp Preparation</div>
                 <p class="day-desc">We prepared tailored evaluation kits filled with articles like pencils, clay, stickers, flashcards, crayons and building blocks to prepare for the school readiness assessment camp being held at NISH.</p>
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 5: School Readiness Camp Assistance</div>
+                <div class="day-title">Day 13: School Readiness Camp Assistance</div>
                 <p class="day-desc">We supported the CATI department during the camp by observing behaviors of participants, helping with the transportation of materials and registration of the participants, and assisting parents evaluating developmental milestones for children with ASRD as a part of the camp.</p>
                 <p class="day-desc">The camp provided valuable exposure to the practical aspects of working with children with developmental differences and supporting their families. It helped us develop a better understanding of the diverse needs, behaviours, and learning styles of children with ASRD, while also fostering empathy and patience.</p>
             </div>
@@ -245,7 +245,7 @@
         <summary>Week 4: Inter-Board Interfacing & Game Development</summary>
         <div class="log-content">
             <div class="day-entry">
-                <div class="day-title">Day 1: Board Troubleshooting & UART Port</div>
+                <div class="day-title">Day 14: Board Troubleshooting & UART Port</div>
                 <p class="day-desc">We faced a hardware UART port failure on the WaveShare display module. We had to ensure that it works on the USB port, and hence we switched to methods adapting workflows to run through alternative USB protocols.<br>
                 <strong style="color: #ef4444;">Error:</strong> UART port connection shows "Windows:Device Not Recognised" error. We need to verify if the board works on the USB port.<br>
                 <strong style="color: #10b981;">Resolution:</strong> A test code was implemented to check the response on Arduino IDE Serial Monitor. The code was loaded successfully and the message sent by user echoes back to the Serial Monitor:</p>
@@ -310,23 +310,23 @@ void loop() {
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 2: Troubleshooting the WaveShare</div>
+                <div class="day-title">Day 15: Troubleshooting the WaveShare</div>
                 <p class="day-desc">We uploaded one of the official WaveShare example programs. The LCD responded as expected, confirming that the main processor and display hardware were operational. Hence development could continue despite an issue with the UART port.</p>
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 3: Port Registers Optimization &amp; Signal Math Review</div>
+                <div class="day-title">Day 16: Port Registers Optimization &amp; Signal Math Review</div>
                 <p class="day-desc">We audited our micro-controller register configuration and evaluated sEMG signal conversion pipelines to optimize analog reading consistency. Readings received from the Myoware sensor ranged from 0mV to 7.45mV.</p>
                 <p class="day-desc">We reviewed MSP430 port selection registers to understand why certain online examples using both PxSEL0 and PxSEL1 were incompatible with our microcontroller. This was because MSP430FR4133 only provides PxSEL0, allowing two selectable functions per pin, whereas other MSP430 variants use both registers to support additional peripheral functions.</p>
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 4: SD Card Data Logging Improvements</div>
+                <div class="day-title">Day 17: SD Card Data Logging Improvements</div>
                 <p class="day-desc">We upgraded our storage script to allow continuous multi-sector data streaming, securing capacity for up to 400,000 continuous readings without memory losses. Testing was carried out using a 10 MB text file, and the system was configured to align logged data correctly within the storage space.</p>
             </div>
             
             <div class="day-entry">
-                <div class="day-title">Day 5: sEMG Exercise Game Logic and Pygame Prototyping</div>
+                <div class="day-title">Day 18: sEMG Exercise Game Logic and Pygame Prototyping</div>
                 <p class="day-desc">We conceptualized assistive simulation parameters and developed an engaging 2D interactive Pygame prototype designed around muscle contraction tracking thresholds.</p>
                 <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin: 1.5rem 0; flex-wrap: wrap;">
                     <div style="flex: 1; min-width: 280px; max-width: 48%; text-align: center;">
@@ -347,10 +347,10 @@ void loop() {
 
     <!-- WEEK 5 -->
     <details>
-        <summary>Week 5: Enhancing "Flex A Pie" Game</summary>
+        <summary>Week 5: Developing "Flex A Pie" Game</summary>
         <div class="log-content">
             <div class="day-entry">
-                <div class="day-title">Day 1: Interfacing Pygame with Sensor Input</div>
+                <div class="day-title">Day 19: Interfacing Pygame with Sensor Input</div>
                 <p class="day-desc">We integrated sensor readings to govern the jump action of the player, focussing on ADC values obtained from the sensor.</p>
                 <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin: 1.5rem 0; flex-wrap: wrap;">
                     <div style="flex: 1; min-width: 280px; max-width: 48%; text-align: center;">
@@ -366,18 +366,18 @@ void loop() {
                 <p class="day-desc">The player performs a low jump when ADC value lies between 300 and 650 and performs a high jump when ADC value exceeds 650. A potentiometer was connected to pin P1.3 to simulate the readings.</p>
             </div>
             <div class="day-entry">
-                <div class="day-title">Day 2: Implementing BLE and nRF with Pygame</div>
+                <div class="day-title">Day 20: Implementing BLE and nRF with Pygame</div>
                 <p class="day-desc">We tested bluetooth connectivity with ESP-32 Module using Pygame and bleak, and later on were able to make the player jump based on button input on the LCD display of ESP32-S3 with BLE.</p>
                 <p class="day-desc">We tested to control the player jump with a seeed studio XIAO nRF54L 15 physically connected to the laptop, and were able to control the jump by moving the sensor up-and-down.</p>
                 <p class="day-desc">We also tested a basic implementation of an ML model to identify the palm grisp as at rest or closed with the Myoware 2.0 muscle sensor.</p>
             </div>
             <div class="day-entry">
-                <div class="day-title">Day 3: XIAO nRF54L 15 to Control Player Jump</div>
+                <div class="day-title">Day 21: XIAO nRF54L 15 to Control Player Jump</div>
                 <p class="day-desc">We tested bluetooth connectivity with the seeed studio XIAO nRF54L 15.</p>
                 <p class="day-desc">We then checked how to control the player jump with a seeed studio XIAO nRF54L 15 via BLE.</p>
             </div>
             <div class="day-entry">
-                <div class="day-title">Day 4: Further Game Enhancements</div>
+                <div class="day-title">Day 22: Further Game Enhancements</div>
                 <p class="day-desc">We added multiple difficulty levels for the player namely: Easy, Moderate and Hard. A timer is introduced in the Hard level, and changes in the mango spawn height was made in the first two levels.</p>
                 <p class="day-desc">We were able to successfully test the working of the game using a hand glove integrated with the seeed studio XIAO nRF54L 15 and control the player jump in all three game levels.</p>
             </div>
@@ -389,26 +389,24 @@ void loop() {
         <summary>Week 6: Enhancing Rehabilitation Game</summary>
         <div class="log-content">
             <div class="day-entry">
-                <div class="day-title">Day 1: Introduction to BioAmp Blip</div>
+                <div class="day-title">Day 23: Introduction to BioAmp Blip</div>
                 <p class="day-desc">Familiarised with BioAmp Blip by Upside Down Labs.</p>
             </div>
             <div class="day-entry">
-                <div class="day-title">Day 2: Working with BioAmp Blip</div>
-                <p class="day-desc">Used the BioAmp Blip to record EMG values and display in the serial monitor with Arduino UNO.</p>
-                <p class="day-desc">We ran a sample example to scroll the page using the BioAmp Blip module.</p>
+                <div class="day-title">Day 24: Working with BioAmp Blip</div>
+                <p class="day-desc">Used the BioAmp Blip to record EMG values and display in the serial monitor with Arduino UNO. We ran a sample example to scroll the page using the BioAmp Blip module.</p>
             </div>
             <div class="day-entry">
-                <div class="day-title">Day 3:</div>
+                <div class="day-title">Day 25: Comparison of Muscle Sensors</div>
+                <p class="day-desc">Tested the working of the BioAmp Blip and attempted to display readings and waveforms in the Serial Monitor and Serial Plotter. Compared the testing with Myoware 2.0 Muscle Sensor.</p>
+            </div>
+            <div class="day-entry">
+                <div class="day-title">Day 26:</div>
                 <p class="day-desc">N/A.</p>
                 <p class="day-desc">N/A.</p>
             </div>
             <div class="day-entry">
-                <div class="day-title">Day 4:</div>
-                <p class="day-desc">N/A.</p>
-                <p class="day-desc">N/A.</p>
-            </div>
-            <div class="day-entry">
-                <div class="day-title">Day 5:</div>
+                <div class="day-title">Day 27:</div>
                 <p class="day-desc">N/A.</p>
                 <p class="day-desc">N/A.</p>
             </div>
